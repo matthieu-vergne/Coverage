@@ -44,7 +44,7 @@ public class JabrefSorterTotal extends AbstractJabrefSorter {
 			counter++;
 			List<Integer> lines = new ArrayList<Integer>(data.get(test));
 			Collections.sort(lines);
-			report = counter + ": " + test + " = " + data.get(test).size()
+			report += counter + ": " + test + " = " + data.get(test).size()
 					+ " " + lines + "\n";
 		}
 		return report;

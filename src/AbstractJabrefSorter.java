@@ -84,8 +84,9 @@ public abstract class AbstractJabrefSorter extends AbstractSorter {
 				.entrySet()) {
 			System.out.println("Summary:");
 			System.out.println(entry.getKey());
-			System.out.println("\nStatement coverage:");
+			System.out.println("Statement coverage:");
 			System.out.println(entry.getValue());
+			System.out.println("==================");
 		}
 	}
 
@@ -95,7 +96,12 @@ public abstract class AbstractJabrefSorter extends AbstractSorter {
 			if (summary == null) {
 				getLogger().warning("Null summary => pass");
 			} else {
-				reports.put(summary, createReport(summary));
+				String report = createReport(summary);
+				if (report.isEmpty()) {
+					// forget it
+				} else {
+					reports.put(summary, report);
+				}
 			}
 		}
 	}
